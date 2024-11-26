@@ -1,0 +1,95 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block cuerpo %}
+<div class = "row"> <!--LA FILA-->
+    <div class = "col-sm-12 col-md-4 col-lg-4 col-xl-4"> <!--COLUMNA IZQUIERDA-->
+
+    <h1>Datos Venta</h1>
+    <div class="card"> <!--LA TARJETA-->
+        <div class="card-body">
+            <form action='RegistrarVentas/' method='POST'> {% csrf_token %}<!--NO HAY ACCION-->
+                <div class='form-group'>
+                <input type="number" id="txtid_ventas" name="txtid_ventas" class="form-control"
+                placeholder="ID Ventas" minlenght="1" maxlenght="6" requiered>
+                </div>
+
+                <div class='form-group py-3'>
+                    <input type="text" id="txtproveedor" name="txtproveedor" class="form-control" placeholder="ID Proveedores" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+
+                <div class='form-group py-2'>
+                    <input type="text" id="txtcliente" name="txtcliente" class="form-control" placeholder="ID Cliente" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+
+                <div class='form-group py-2'>
+                    <input type="text" id="txtempleado" name="txtempleado" class="form-control" placeholder="ID Empleado" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+                
+                <div class='form-group py-2'>
+                    <input type="text" id="txtcantidad" name="txtcantidad" class="form-control" placeholder= "Cantidad de Piezas" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+                
+                <div class='form-group py-2'>
+                    <input type="text" id="txtprecioventas" name="txtprecioventas" class="form-control" placeholder= "Precio Completo" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+
+                <div class='form-group py-2'>
+                    <input type="text" id="txtfechaventas" name="txtfechaventas" class="form-control" placeholder= "Fecha" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+                
+                <div class='form-group py-2'>
+                    <input type="text" id="txtmetodopago" name="txtmetodopago" class="form-control" placeholder= "Metodo de Pago" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+                
+                <div class='form-group py-2'>
+                    <button type="submit" class="btn btn-primary">Guardar Venta</button>
+                    </div>
+                </form>
+        </div>
+    </div> <!--LA TARJETA-->
+            
+
+    </div> <!--COLUMNA IZQUIERDA-->
+
+    <div class = "col-sm-12 col-md-8 col-lg-4 col-xl-8"> <!--COLUMNA DERECHA-->
+
+    <h1>Listado de Ventas</h1>
+    <img class="w-50" src="{% static 'img/VENTAS.png' %}" alt="casillas" width="200" height="200"> </img>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">id Ventas</th>
+            <th scope="col">id Proveedor</th>
+            <th scope="col">id Cliente</th>
+            <th scope="col">id Empleado</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Metodo de Pago</th>
+            <th>Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for m in misventas %}
+            <tr>
+                <td> {{forloop.counter}} </td>
+                <td> {{m.id_ventas}} </td>
+                <td> {{m.id_proveedores}} </td>
+                <td> {{m.id_cliente}} </td>
+                <td> {{m.id_empleado}} </td>
+                <td> {{m.cantidad}} </td>
+                <td> {{m.precioventas}} </td>
+                <td> {{m.fechaventas}} </td>
+                <td> {{m.metodopago}} </td>
+                <td> <a href="SeleccionarVentas/{{m.id_ventas}}" class="btn btn-info">Editar</a> </td><!--FALTA CÓDIGO-->
+                <td> <a href="BorrarVentas/{{m.id_ventas}}" class="btn btn-danger">Borrar</a> </td><!--FALTA CÓDIGO-->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    </div> <!--COLUMNA DERECHA-->
+
+{% endblock %}

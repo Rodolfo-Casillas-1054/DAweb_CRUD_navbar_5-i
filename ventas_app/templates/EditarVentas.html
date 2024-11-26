@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block cuerpo %}
+<div class="row">
+<div class="col-md-4 offset-md-4">
+    <h2>Editar Ventas</h2>
+    <!-- Aquí código tarjeta -->
+    <div class="card"> <!--LA TARJETA-->
+        <div class="card-body">
+            <form action='/EditarVentas/' method='POST'> {% csrf_token %}<!--NO HAY ACCION-->
+                <div class='form-group'>
+                <input type="text" id="txtid_ventas" name="txtid_ventas" class="form-control"
+                value="{{misventas.id_ventas}}"
+                minlength="1" maxlength="10" readonly requiered>
+                </div>
+
+                <div class='form-group py-3'>
+                    <input type="text" id="txtproveedor" name="txtproveedor" class="form-control" value="{{misventas.id_proveedores}}" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+
+                <div class='form-group py-2'>
+                    <input type="text" id="txtcliente" name="txtcliente" class="form-control" value="{{misventas.id_cliente}}" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+                
+                <div class='form-group py-2'>
+                    <input type="text" id="txtempleado" name="txtempleado" class="form-control" value="{{misventas.id_empleado}}" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+
+                <div class='form-group py-2'>
+                    <input type="text" id="txtcantidad" name="txtcantidad" class="form-control" value="{{misventas.cantidad}}" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+                
+                <div class='form-group py-2'>
+                    <input type="text" id="txtprecioventas" name="txtprecioventas" class="form-control" value="{{misventas.precioventas}}" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+                
+                <div class='form-group py-2'>
+                    <input type="text" id="txtfechaventas" name="txtfechaventas" class="form-control" value="{{misventas.fechaventas}}" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+                
+                <div class='form-group py-2'>
+                    <input type="text" id="txtmetodopago" name="txtmetodopago" class="form-control" value="{{misventas.metodopago}}" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+
+                <div class='form-group py-2'>
+                    <button type="submit" class="btn btn-primary">Guardar Venta</button>
+                    </div>
+                </form>
+    
+        </div>
+    </div> <!--LA TARJETA-->
+    <!-- Aquí código tarjeta -->
+
+</div>
+
+
+</div><!--Fila en Editar-->
+
+
+
+{% endblock %}
