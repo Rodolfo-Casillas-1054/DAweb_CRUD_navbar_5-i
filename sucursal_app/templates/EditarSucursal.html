@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block cuerpo %}
+<div class="row">
+<div class="col-md-4 offset-md-4">
+    <h2>Editar Sucursal</h2>
+    <!-- Aquí código tarjeta -->
+    <div class="card"> <!--LA TARJETA-->
+        <div class="card-body">
+            <form action='/EditarSucursal/' method='POST'> {% csrf_token %}<!--NO HAY ACCION-->
+                <div class='form-group'>
+                <input type="text" id="txtid_sucursal" name="txtid_sucursal" class="form-control"
+                value="{{missucursales.id_sucursal}}"
+                minlength="1" maxlength="10" readonly requiered>
+                </div>
+
+                <div class='form-group py-3'>
+                    <input type="text" id="txtnombre" name="txtnombre" class="form-control" value="{{missucursales.nombre}}" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+
+                <div class='form-group py-2'>
+                    <input type="text" id="txtdireccion" name="txtdireccion" class="form-control" value="{{missucursales.direccion}}" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+                
+                <div class='form-group py-2'>
+                    <input type="text" id="numaforo" name="numaforo" class="form-control" value="{{missucursales.aforo}}" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+
+                <div class='form-group py-2'>
+                    <input type="text" id="numnumeroempleados" name="numnumeroempleados" class="form-control" value="{{missucursales.numeroempleados}}" minlenght="1" maxlenght="1000" requiered>
+                    </div>
+
+                <div class='form-group py-2'>
+                    <button type="submit" class="btn btn-primary">Guardar Sucursal</button>
+                    </div>
+                </form>
+    
+        </div>
+    </div> <!--LA TARJETA-->
+    <!-- Aquí código tarjeta -->
+
+</div>
+
+
+</div><!--Fila en Editar-->
+
+
+
+{% endblock %}
